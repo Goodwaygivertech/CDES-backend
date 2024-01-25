@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 
 const Document = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  userId: { type: String,  required: true },
   docName:{type: String, required: true},
     docData: { type: String, required: true },
     sharedWith: [],

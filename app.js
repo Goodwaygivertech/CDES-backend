@@ -7,10 +7,6 @@ import dotenv from 'dotenv';
 import { router } from "./router.js";
 dotenv.config();
 
-// import jwt from "jsonwebtoken";
-// import cookieParser from "cookie-parser";
-
-// const secretKeyJWT = "asdasdsadasdasdasdsa";
 const port = 5000;
 
 const app = express();
@@ -39,30 +35,8 @@ app.use(express.json());
 app.use(cors());
 app.use("/api" , router)
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World! And port is Working");
 });
-
-// app.get("/login", (req, res) => {
-//   const token = jwt.sign({ _id: "asdasjdhkasdasdas" }, secretKeyJWT);
-
-//   res
-//     .cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" })
-//     .json({
-//       message: "Login Success",
-//     });
-// });
-
-// io.use((socket, next) => {
-//   cookieParser()(socket.request, socket.request.res, (err) => {
-//     if (err) return next(err);
-
-//     const token = socket.request.cookies.token;
-//     if (!token) return next(new Error("Authentication Error"));
-
-//     const decoded = jwt.verify(token, secretKeyJWT);
-//     next();
-//   });
-// });
 
 io.on("connection", (socket) => {
   console.log("User Connected", socket.id);
