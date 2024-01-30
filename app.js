@@ -39,10 +39,10 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  console.log("User Connected", socket.id);
+  // console.log("User Connected", socket.id);
 
   socket.on("message", ({  model, roomName }) => {
-    console.log({  model, roomName });
+    // console.log({  model, roomName });
     socket.to(roomName).emit("receive-message", model);
   });
 
