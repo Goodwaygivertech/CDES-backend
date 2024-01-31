@@ -43,12 +43,13 @@ io.on("connection", (socket) => {
 
   socket.on("message", ({  model, roomName }) => {
     // console.log({  model, roomName });
+    // console.log("model=> ", model)
     socket.to(roomName).emit("receive-message", model);
   });
 
   socket.on("join-room", (room) => {
     socket.join(room);
-    console.log(`User joined room ${room}`);
+    // console.log(`User joined room ${room}`);
   });
 
   socket.on("disconnect", () => {

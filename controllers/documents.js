@@ -32,6 +32,7 @@ export const getDocs = async (req, res) => {
   }
 };
 
+
 export const getDocumentById = async (req, res) => {
   const { documentId } = req.params; // Assuming the documentId is part of the route parameters
 
@@ -180,3 +181,5 @@ export const deleteDocument = async (req, res) => {
       .json({ success: false, message: "Internal Server Error" });
   }
 };
+
+
